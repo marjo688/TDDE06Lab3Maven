@@ -1,0 +1,83 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.codetab</groupId>
+        <artifactId>super-pom</artifactId>
+        <version>1.0</version>
+    </parent>
+    <artifactId>server</artifactId>
+
+    <packaging>mvn-golang</packaging>
+
+    <build>
+        <!-- <sourceDirectory>${basedir}${file.separator}src</sourceDirectory> -->
+        <sourceDirectory>./src/</sourceDirectory>
+
+        <!-- <directory>${basedir}${file.separator}src/bin</directory> -->
+        <plugins>
+            <plugin>
+                <groupId>com.igormaznitsa</groupId>
+                <artifactId>mvn-golang-wrapper</artifactId>
+                <version>2.1.6</version>
+                <extensions>true</extensions>
+
+                <configuration>
+                    <goVersion>1.9.2</goVersion>
+
+                    <command/>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>default-get</id>
+                        <configuration>
+                            <packages>
+                                <package>github.com/lib/pq</package>
+                            </packages>
+                            <goVersion/>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <goals>
+                            <goal>build</goal>
+                        </goals>
+                        <configuration>
+                            <packages>
+                                <package>todo.go</package>
+                            </packages>
+                            <goVersion/>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>default-test</id>
+                        <configuration>
+                            <buildFlags>
+                                <flag>-v</flag>
+                            </buildFlags>
+                            <goVersion/>
+                        </configuration>
+                    </execution>
+
+                    <!--<execution>
+                        <id>getTestDependencies</id>
+                        <goals>
+                            <goal>get</goal>
+                        </goals>
+                        <configuration>
+                            <buildFlags>
+                                <flag>-t</flag>
+                            </buildFlags>
+                            <packages>
+                                <package>./...</package>
+                            </packages>
+                            <goVersion/>
+                        </configuration>
+                    </execution>-->
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
+
+

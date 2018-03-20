@@ -1,0 +1,17 @@
+theMulti
+|
+|--pom.xml
+|
+|
+|----client
+|	|--pom.xml
+|	|-----src
+|		|--main/java/client/XX.
+|		|--test/
+|		
+|
+|----server
+|	|--pom.xml
+|	|------src
+		|--main
+		|--test
